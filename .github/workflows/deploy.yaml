@@ -16,25 +16,14 @@ jobs:
       - name: Generate deployment package
         run: zip -r deploy.zip . -x '*.git*'
 
-      - name: Run string replace
-        uses: frabert/replace-string-action@master
-        id: format-time
-        with:
-          # replaces '[:\.]+' in the timestamp with '-'
-          pattern: '[:\.]+'
-          string: "${{ steps.current-time.outputs.time }}"
-          replace-with: '-'
-          flags: 'g'
-
-
       - name: Deploy to EB
         uses: einaregilsson/beanstalk-deploy@v18
         with:
           aws_access_key: ${{ secrets.AWS_ACCESS_KEY }}
           aws_secret_key: ${{ secrets.AWS_SECRET_KEY }}
-          application_name: Veggie
-          environment_name: Veggie-env
+          application_name: "Frontend Dev"
+          environment_name: FrontendDev-env
           existing_bucket_name: elasticbeanstalk-ap-south-1-443370700977
           region: ap-south-1
-          version_label: "app-${{ steps.format-time.outputs.replaced }}"
+          version_label: ${{ github.sha }}
           deployment_package: deploy.zip
