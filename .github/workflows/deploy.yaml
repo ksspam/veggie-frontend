@@ -21,9 +21,9 @@ jobs:
         with:
           aws_access_key: ${{ secrets.AWS_ACCESS_KEY }}
           aws_secret_key: ${{ secrets.AWS_SECRET_KEY }}
-          application_name: react-one
-          environment_name: React-one-env
-          existing_bucket_name: elasticbeanstalk-ap-south-1-443370700977
-          region: ap-south-1
+          application_name: react_veggie
+          environment_name: Reactveggie-env
+          existing_bucket_name: elasticbeanstalk-us-east-1-223194923019
+          region: us-east-1
           version_label: ${{ github.sha }}
           deployment_package: deploy.zip
