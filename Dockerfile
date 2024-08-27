@@ -1,5 +1,8 @@
 FROM node:lts-alpine3.18 as build_stage
 
+ENV GENERATE_SOURCEMAP=false
+ENV NODE_OPTIONS=--max-old-space-size=1024
+
 WORKDIR /app
 
 COPY package.json .
