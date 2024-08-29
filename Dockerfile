@@ -15,4 +15,4 @@ RUN ["npm", "run", "build"]
 
 FROM nginx:alpine3.20
 
-COPY --from=build_stage /app/ /usr/share/nginx/html
+COPY --from=build_stage /app/build /usr/share/nginx/html
