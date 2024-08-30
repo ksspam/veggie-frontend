@@ -21,8 +21,8 @@ jobs:
         with:
           aws_access_key: ${{ secrets.AWS_ACCESS_KEY }}
           aws_secret_key: ${{ secrets.AWS_SECRET_KEY }}
-          application_name: "docker react 1"
-          environment_name: "Dockerreact1-env"
+          application_name: "Docker React Medium"
+          environment_name: "DockerReactMedium-env"
           existing_bucket_name: elasticbeanstalk-ap-south-1-443370700977
           region: ap-south-1
           version_label: ${{ github.sha }}
